@@ -1,0 +1,327 @@
+Started GET "/" for 127.0.0.1 at 2025-07-20 18:35:41 +0000
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | Allocations: 378)
+Completed 200 OK in 40ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 7907)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (4.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-07-20 18:43:41.961877', '2025-07-20 18:43:41.961880') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20250720184314)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720184314') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2025-07-20 18:44:09 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 376)
+Completed 200 OK in 19ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 5365)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-20 18:44:10 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.0ms | Allocations: 13)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 208)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2025-07-20 18:44:27 +0000
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/shared/_error_messages.html.erb (Duration: 0.3ms | Allocations: 230)
+  Rendered /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 528)
+  Rendered /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 4246)
+  Rendered layout layouts/application.html.erb (Duration: 287.4ms | Allocations: 94726)
+Completed 200 OK in 303ms (Views: 291.3ms | ActiveRecord: 1.3ms | Allocations: 104311)
+
+
+Started POST "/users" for 127.0.0.1 at 2025-07-20 18:44:51 +0000
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"jonathan.verheyen@protonmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jonathan.verheyen@protonmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "jonathan.verheyen@protonmail.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2025-07-20 18:44:51.325869"], ["updated_at", "2025-07-20 18:44:51.325869"]]
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 305ms (ActiveRecord: 4.7ms | Allocations: 17852)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-20 18:44:51 +0000
+Processing by Rails::WelcomeController#index as TURBO_STREAM
+  Rendering /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.0ms | Allocations: 13)
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 250)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-20 18:44:51 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 13)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 203)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2025-07-20 18:45:17 +0000
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 11ms (ActiveRecord: 0.2ms | Allocations: 2117)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-20 18:45:17 +0000
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.5.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.0ms | Allocations: 13)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 203)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-20 18:55:36 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  Rendered pages/home.html.erb within layouts/application (Duration: 32.1ms | Allocations: 14433)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 14559)
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 1.9ms | Allocations: 18862)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `galleries_path' for #<ActionView::Base:0x0000000000bea0>):
+    4: 
+    5: <% if user_signed_in? %>
+    6:   <p>Hello, <%= current_user.email %>!</p>
+    7:   <%= link_to "My Galleries", galleries_path %> |
+    8:   <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+    9: <% else %>
+   10:   <%= link_to "Sign Up", new_user_registration_path %> |
+  
+app/views/pages/home.html.erb:7
+Started GET "/" for 127.0.0.1 at 2025-07-20 18:57:24 +0000
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1896)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 1987)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 2223)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `galleries_path' for #<ActionView::Base:0x0000000000c260>):
+    4: 
+    5: <% if user_signed_in? %>
+    6:   <p>Hello, <%= current_user.email %>!</p>
+    7:   <%= link_to "My Galleries", galleries_path %> |
+    8:   <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+    9: <% else %>
+   10:   <%= link_to "Sign Up", new_user_registration_path %> |
+  
+app/views/pages/home.html.erb:7
+Started GET "/" for 127.0.0.1 at 2025-07-20 18:57:25 +0000
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1890)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1981)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 2216)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `galleries_path' for #<ActionView::Base:0x0000000000c530>):
+    4: 
+    5: <% if user_signed_in? %>
+    6:   <p>Hello, <%= current_user.email %>!</p>
+    7:   <%= link_to "My Galleries", galleries_path %> |
+    8:   <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+    9: <% else %>
+   10:   <%= link_to "Sign Up", new_user_registration_path %> |
+  
+app/views/pages/home.html.erb:7
+Started GET "/" for 127.0.0.1 at 2025-07-20 19:03:30 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  Rendered pages/home.html.erb within layouts/application (Duration: 18.2ms | Allocations: 13386)
+  Rendered layout layouts/application.html.erb (Duration: 114.7ms | Allocations: 50606)
+Completed 200 OK in 123ms (Views: 117.4ms | ActiveRecord: 1.6ms | Allocations: 54952)
+
+
+Started GET "/galleries" for 127.0.0.1 at 2025-07-20 19:03:37 +0000
+  
+ActionController::RoutingError (uninitialized constant GalleriesController):
+  
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGalleries (20250720190530)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "galleries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_05f824a025"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_galleries_on_user_id" ON "galleries" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720190530') RETURNING "version"[0m
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2025-07-20 19:23:16 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  Rendered pages/home.html.erb within layouts/application (Duration: 14.7ms | Allocations: 12957)
+  Rendered layout layouts/application.html.erb (Duration: 66.8ms | Allocations: 44394)
+Completed 200 OK in 75ms (Views: 67.8ms | ActiveRecord: 1.2ms | Allocations: 48742)
+
+
+Started GET "/galleries" for 127.0.0.1 at 2025-07-20 19:23:18 +0000
+Processing by GalleriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/galleries/index.html.erb:6
+  Rendered galleries/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 969)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2756)
+Completed 200 OK in 11ms (Views: 5.0ms | ActiveRecord: 0.2ms | Allocations: 5238)
+
+
+Started GET "/galleries" for 127.0.0.1 at 2025-07-20 19:23:18 +0000
+Processing by GalleriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/galleries/index.html.erb:6
+  Rendered galleries/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 620)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2390)
+Completed 200 OK in 11ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 2655)
+
+
+Started GET "/galleries" for 127.0.0.1 at 2025-07-20 19:23:19 +0000
+Processing by GalleriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/galleries/index.html.erb:6
+  Rendered galleries/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 628)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2398)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.2ms | Allocations: 2663)
+
+
+Started GET "/galleries" for 127.0.0.1 at 2025-07-20 19:23:19 +0000
+Processing by GalleriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/galleries/index.html.erb:6
+  Rendered galleries/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 649)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 2435)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.2ms | Allocations: 2702)
+
+
+Started GET "/galleries/new" for 127.0.0.1 at 2025-07-20 19:23:21 +0000
+Processing by GalleriesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (Duration: 9.1ms | Allocations: 1713)
+  Rendered galleries/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 2031)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 3201)
+Completed 200 OK in 50ms (Views: 12.8ms | ActiveRecord: 0.5ms | Allocations: 9397)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-20 19:23:23 +0000
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.0ms | Allocations: 887)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 2041)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.2ms | Allocations: 2282)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-20 19:23:24 +0000
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.5ms | Allocations: 920)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 2074)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.1ms | Allocations: 2315)
+
+
+Started GET "/galleries" for 127.0.0.1 at 2025-07-20 19:23:25 +0000
+Processing by GalleriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/galleries/index.html.erb:6
+  Rendered galleries/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 620)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2389)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.1ms | Allocations: 2648)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-20 19:23:27 +0000
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.9ms | Allocations: 914)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2068)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.2ms | Allocations: 2309)
+
+
+Started GET "/galleries" for 127.0.0.1 at 2025-07-20 19:23:28 +0000
+Processing by GalleriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/galleries/index.html.erb:6
+  Rendered galleries/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 622)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2391)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 2650)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-20 19:23:29 +0000
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 899)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 2054)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.1ms | Allocations: 2295)
+
+

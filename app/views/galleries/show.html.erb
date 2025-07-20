@@ -1,0 +1,14 @@
+
+<changed to show only if logged in, and to give better gallery names> 
+
+<h1><%= @gallery.title %></h1>
+
+<% if user_signed_in? && current_user == @gallery.user %>
+  <%= link_to "Edit", edit_gallery_path(@gallery) %> |
+  <%= link_to "Delete", gallery_path(@gallery), method: :delete, data: { confirm: "Are you sure?" } %> |
+  <%= link_to "Add Photo", new_gallery_photo_path(@gallery) %>
+<% end %>
+
+<h2>Photos:</h2>
+<%= render @gallery.photos %>
+
