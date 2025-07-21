@@ -9,6 +9,19 @@
   <%= link_to "Add Photo", new_gallery_photo_path(@gallery) %>
 <% end %>
 
+<edited to show photos as thumbnails, give the original's URL, give captions, and allow editing access to owners.>
 <h2>Photos:</h2>
-<%= render @gallery.photos %>
+<% @gallery.photos.each do |photo| %>
+  <div>
+    <% if photo.image.attached? %>
+      <%= link_to image_tag(photo.image.variant(resize_to_limit: [150, 150])), url_for(photo.image), target: "_blank" %>
+    <% end %>
+    <p><%= photo.caption %></p>
+
+    <% if current_user == @gallery.user %>
+      <%= link_to "Edit", edit_gallery_photo_path(@gallery, photo) %> |
+      <%= link_to "Delete", gallery_photo_path(@gallery, photo), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </div>
+<% end %>
 
