@@ -357,3 +357,788 @@ FOREIGN KEY ("gallery_id")
   [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250720194938') RETURNING "version"[0m
   [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2025-07-25 19:31:05 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.1ms | Allocations: 942)
+  Rendered layout layouts/application.html.erb (Duration: 110.3ms | Allocations: 32625)
+Completed 200 OK in 138ms (Views: 116.3ms | ActiveRecord: 0.0ms | Allocations: 36974)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2025-07-25 19:31:07 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 575)
+  Rendered /home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/devise-4.9.4/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 3466)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 4717)
+Completed 200 OK in 45ms (Views: 14.9ms | ActiveRecord: 1.9ms | Allocations: 14515)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2025-07-25 19:31:09 +0000
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"jonathan.verheyen@protonmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "jonathan.verheyen@protonmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 274ms (ActiveRecord: 0.9ms | Allocations: 6934)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-25 19:31:10 +0000
+Processing by PagesController#home as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1010)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2183)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.2ms | Allocations: 2471)
+
+
+Started GET "/galleries" for 127.0.0.1 at 2025-07-25 19:31:11 +0000
+Processing by GalleriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/galleries/index.html.erb:6
+  Rendered galleries/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 927)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 2714)
+Completed 200 OK in 22ms (Views: 12.1ms | ActiveRecord: 0.2ms | Allocations: 4656)
+
+
+Started GET "/galleries/new" for 127.0.0.1 at 2025-07-25 19:31:13 +0000
+Processing by GalleriesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (Duration: 2.0ms | Allocations: 1126)
+  Rendered galleries/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1407)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 2570)
+Completed 200 OK in 29ms (Views: 11.2ms | ActiveRecord: 0.3ms | Allocations: 7909)
+
+
+Started GET "/galleries" for 127.0.0.1 at 2025-07-25 19:31:21 +0000
+Processing by GalleriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/galleries/index.html.erb:6
+  Rendered galleries/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 656)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2426)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.1ms | Allocations: 2691)
+
+
+Started POST "/galleries" for 127.0.0.1 at 2025-07-25 19:31:22 +0000
+Processing by GalleriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "gallery"=>{"title"=>"Tets", "user_id"=>""}, "commit"=>"Create Gallery"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms | Allocations: 2272)
+
+
+  
+NoMethodError (undefined method `Gallery' for #<User id: 1, email: "jonathan.verheyen@protonmail.com", created_at: "2025-07-20 18:44:51.325869000 +0000", updated_at: "2025-07-20 18:44:51.325869000 +0000">):
+  
+app/controllers/galleries_controller.rb:29:in `create'
+Started GET "/galleries/new" for 127.0.0.1 at 2025-07-25 19:31:34 +0000
+Processing by GalleriesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (Duration: 0.6ms | Allocations: 551)
+  Rendered galleries/new.html.erb within layouts/application (Duration: 0.7ms | Allocations: 630)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1807)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.1ms | Allocations: 3449)
+
+
+Started POST "/galleries" for 127.0.0.1 at 2025-07-25 19:31:43 +0000
+Processing by GalleriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "gallery"=>{"title"=>"Test", "user_id"=>"Test"}, "commit"=>"Create Gallery"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 2050)
+
+
+  
+NoMethodError (undefined method `Gallery' for #<User id: 1, email: "jonathan.verheyen@protonmail.com", created_at: "2025-07-20 18:44:51.325869000 +0000", updated_at: "2025-07-20 18:44:51.325869000 +0000">):
+  
+app/controllers/galleries_controller.rb:29:in `create'
+Started GET "/galleries/new" for 127.0.0.1 at 2025-07-25 19:37:58 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GalleriesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (Duration: 14.3ms | Allocations: 1897)
+  Rendered galleries/new.html.erb within layouts/application (Duration: 18.4ms | Allocations: 2333)
+  Rendered layout layouts/application.html.erb (Duration: 85.7ms | Allocations: 34113)
+Completed 200 OK in 151ms (Views: 90.8ms | ActiveRecord: 1.9ms | Allocations: 56954)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-25 19:38:01 +0000
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1213)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 2395)
+Completed 200 OK in 15ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 2909)
+
+
+Started GET "/galleries" for 127.0.0.1 at 2025-07-25 19:38:02 +0000
+Processing by GalleriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/galleries/index.html.erb:6
+  Rendered galleries/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 930)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 2714)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.2ms | Allocations: 3105)
+
+
+Started GET "/galleries/new" for 127.0.0.1 at 2025-07-25 19:38:03 +0000
+Processing by GalleriesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (Duration: 0.7ms | Allocations: 551)
+  Rendered galleries/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 630)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1792)
+Completed 200 OK in 8ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 3426)
+
+
+Started POST "/galleries" for 127.0.0.1 at 2025-07-25 19:38:21 +0000
+Processing by GalleriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "gallery"=>{"title"=>"Test", "user_id"=>"Test"}, "commit"=>"Create Gallery"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 2325)
+
+
+  
+NoMethodError (undefined method `galleryies' for #<User id: 1, email: "jonathan.verheyen@protonmail.com", created_at: "2025-07-20 18:44:51.325869000 +0000", updated_at: "2025-07-20 18:44:51.325869000 +0000">):
+  
+app/controllers/galleries_controller.rb:29:in `create'
+Started GET "/galleries/new" for 127.0.0.1 at 2025-07-25 19:39:25 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GalleriesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (Duration: 3.1ms | Allocations: 1897)
+  Rendered galleries/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2333)
+  Rendered layout layouts/application.html.erb (Duration: 52.1ms | Allocations: 33563)
+Completed 200 OK in 92ms (Views: 58.2ms | ActiveRecord: 2.7ms | Allocations: 56392)
+
+
+Started POST "/galleries" for 127.0.0.1 at 2025-07-25 19:39:26 +0000
+Processing by GalleriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "gallery"=>{"title"=>"Test", "user_id"=>"Test"}, "commit"=>"Create Gallery"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :user_id. Context: { controller: GalleriesController, action: create, request: #<ActionDispatch::Request:0x00007c64ec0a00a0>, params: {"authenticity_token"=>"[FILTERED]", "gallery"=>{"title"=>"Test", "user_id"=>"Test"}, "commit"=>"Create Gallery", "controller"=>"galleries", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/galleries_controller.rb:32:in `block in create'
+  [1m[36mGallery Create (1.5ms)[0m  [1m[32mINSERT INTO "galleries" ("title", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["title", "Test"], ["user_id", 1], ["created_at", "2025-07-25 19:39:26.450382"], ["updated_at", "2025-07-25 19:39:26.450382"]]
+  ↳ app/controllers/galleries_controller.rb:32:in `block in create'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/galleries_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/galleries/1
+Completed 302 Found in 41ms (ActiveRecord: 5.8ms | Allocations: 11489)
+
+
+Started GET "/galleries/1" for 127.0.0.1 at 2025-07-25 19:39:26 +0000
+Processing by GalleriesController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/galleries_controller.rb:68:in `set_gallery'
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mPhoto Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."gallery_id" = ?[0m  [["gallery_id", 1]]
+  ↳ app/views/galleries/show.html.erb:14
+  Rendered galleries/show.html.erb within layouts/application (Duration: 38.8ms | Allocations: 14330)
+  Rendered layout layouts/application.html.erb (Duration: 40.3ms | Allocations: 15495)
+Completed 200 OK in 43ms (Views: 40.4ms | ActiveRecord: 0.5ms | Allocations: 16971)
+
+
+Started GET "/galleries/1/photos/new" for 127.0.0.1 at 2025-07-25 19:39:28 +0000
+Processing by PhotosController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:79:in `set_gallery'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:83:in `authorize_user!'
+  Rendering layout layouts/application.html.erb
+  Rendering photos/new.html.erb within layouts/application
+  Rendered photos/_form.html.erb (Duration: 1.6ms | Allocations: 1909)
+  Rendered photos/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 2172)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 2263)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.5ms | Allocations: 8336)
+
+
+  
+ActionView::Template::Error (undefined method `photos_path' for #<ActionView::Base:0x0000000000de58>):
+    1: <%= form_with(model: photo) do |form| %>
+    2:   <% if photo.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+  
+app/views/photos/_form.html.erb:1
+app/views/photos/new.html.erb:3
+Started GET "/galleries/1/photos/new" for 127.0.0.1 at 2025-07-25 19:42:11 +0000
+Processing by PhotosController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:79:in `set_gallery'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:83:in `authorize_user!'
+  Rendering layout layouts/application.html.erb
+  Rendering photos/new.html.erb within layouts/application
+  Rendered photos/_form.html.erb (Duration: 0.6ms | Allocations: 1473)
+  Rendered photos/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1737)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 1829)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 2.2ms | Allocations: 22629)
+
+
+  
+ActionView::Template::Error (undefined method `photos_path' for #<ActionView::Base:0x00000000013df8>):
+    1: <%= form_with(model: photo) do |form| %>
+    2:   <% if photo.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+  
+app/views/photos/_form.html.erb:1
+app/views/photos/new.html.erb:3
+Started GET "/" for 127.0.0.1 at 2025-07-25 19:42:31 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  Rendered pages/home.html.erb within layouts/application (Duration: 47.3ms | Allocations: 12944)
+  Rendered layout layouts/application.html.erb (Duration: 107.0ms | Allocations: 44304)
+Completed 200 OK in 136ms (Views: 118.1ms | ActiveRecord: 1.4ms | Allocations: 48653)
+
+
+Started GET "/galleries/new" for 127.0.0.1 at 2025-07-25 19:42:33 +0000
+Processing by GalleriesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (Duration: 3.2ms | Allocations: 1729)
+  Rendered galleries/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2045)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3212)
+Completed 200 OK in 28ms (Views: 6.7ms | ActiveRecord: 0.3ms | Allocations: 11024)
+
+
+Started POST "/galleries" for 127.0.0.1 at 2025-07-25 19:42:40 +0000
+Processing by GalleriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "gallery"=>{"title"=>"test", "user_id"=>"test"}, "commit"=>"Create Gallery"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 2334)
+
+
+  
+NoMethodError (undefined method `gallery_id' for #<User id: 1, email: "jonathan.verheyen@protonmail.com", created_at: "2025-07-20 18:44:51.325869000 +0000", updated_at: "2025-07-20 18:44:51.325869000 +0000">):
+  
+app/controllers/galleries_controller.rb:29:in `create'
+Started GET "/galleries/new" for 127.0.0.1 at 2025-07-25 19:43:05 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GalleriesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (Duration: 8.3ms | Allocations: 1897)
+  Rendered galleries/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 2333)
+  Rendered layout layouts/application.html.erb (Duration: 74.0ms | Allocations: 33721)
+Completed 200 OK in 112ms (Views: 76.2ms | ActiveRecord: 2.7ms | Allocations: 56555)
+
+
+Started POST "/galleries" for 127.0.0.1 at 2025-07-25 19:43:10 +0000
+Processing by GalleriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "gallery"=>{"title"=>"test", "user_id"=>"test"}, "commit"=>"Create Gallery"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGallery Pluck (0.1ms)[0m  [1m[34mSELECT "galleries"."id" FROM "galleries" WHERE "galleries"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/galleries_controller.rb:29:in `create'
+[31mUnpermitted parameter: :user_id. Context: { controller: GalleriesController, action: create, request: #<ActionDispatch::Request:0x00007c7e8af0fb60>, params: {"authenticity_token"=>"[FILTERED]", "gallery"=>{"title"=>"test", "user_id"=>"test"}, "commit"=>"Create Gallery", "controller"=>"galleries", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms | Allocations: 4605)
+
+
+  
+NoMethodError (undefined method `new' for [1]:Array):
+  
+app/controllers/galleries_controller.rb:29:in `create'
+Started GET "/galleries/new" for 127.0.0.1 at 2025-07-25 19:43:44 +0000
+Processing by GalleriesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/new.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (Duration: 0.9ms | Allocations: 551)
+  Rendered galleries/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 630)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1807)
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 0.1ms | Allocations: 3485)
+
+
+Started GET "/galleries" for 127.0.0.1 at 2025-07-25 19:45:08 +0000
+Processing by GalleriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/index.html.erb within layouts/application
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries"[0m
+  ↳ app/views/galleries/index.html.erb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/index.html.erb:9
+  Rendered galleries/index.html.erb within layouts/application (Duration: 11.8ms | Allocations: 6079)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:17
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 7851)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.4ms | Allocations: 8206)
+
+
+Started GET "/galleries/1" for 127.0.0.1 at 2025-07-25 19:45:09 +0000
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/galleries_controller.rb:68:in `set_gallery'
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."gallery_id" = ?[0m  [["gallery_id", 1]]
+  ↳ app/views/galleries/show.html.erb:14
+  Rendered galleries/show.html.erb within layouts/application (Duration: 18.4ms | Allocations: 10638)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 11791)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.5ms | Allocations: 13137)
+
+
+Started GET "/galleries/1" for 127.0.0.1 at 2025-07-25 19:45:11 +0000
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/galleries_controller.rb:68:in `set_gallery'
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mPhoto Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."gallery_id" = ?[0m  [["gallery_id", 1]]
+  ↳ app/views/galleries/show.html.erb:14
+  Rendered galleries/show.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1949)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 3099)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.2ms | Allocations: 3716)
+
+
+Started GET "/galleries/1/photos/new" for 127.0.0.1 at 2025-07-25 19:45:13 +0000
+Processing by PhotosController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:79:in `set_gallery'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:83:in `authorize_user!'
+  Rendering layout layouts/application.html.erb
+  Rendering photos/new.html.erb within layouts/application
+  Rendered photos/_form.html.erb (Duration: 0.9ms | Allocations: 1563)
+  Rendered photos/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1826)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1917)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.3ms | Allocations: 8009)
+
+
+  
+ActionView::Template::Error (undefined method `photos_path' for #<ActionView::Base:0x0000000000e2e0>):
+    1: <%= form_with(model: photo) do |form| %>
+    2:   <% if photo.errors.any? %>
+    3:     <div style="color: red">
+    4:       <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+  
+app/views/photos/_form.html.erb:1
+app/views/photos/new.html.erb:3
+Started GET "/galleries/1" for 127.0.0.1 at 2025-07-25 19:54:38 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.2ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/galleries_controller.rb:68:in `set_gallery'
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."gallery_id" = ?[0m  [["gallery_id", 1]]
+  ↳ app/views/galleries/show.html.erb:14
+  Rendered galleries/show.html.erb within layouts/application (Duration: 34.0ms | Allocations: 20718)
+  Rendered layout layouts/application.html.erb (Duration: 92.9ms | Allocations: 51953)
+Completed 200 OK in 115ms (Views: 95.7ms | ActiveRecord: 2.3ms | Allocations: 66622)
+
+
+Started GET "/galleries/1/edit" for 127.0.0.1 at 2025-07-25 19:54:39 +0000
+Processing by GalleriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/galleries_controller.rb:68:in `set_gallery'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/galleries_controller.rb:79:in `authorize_user!'
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/edit.html.erb within layouts/application
+  Rendered galleries/_form.html.erb (Duration: 14.4ms | Allocations: 1731)
+  Rendered galleries/edit.html.erb within layouts/application (Duration: 16.0ms | Allocations: 2116)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 3288)
+Completed 200 OK in 29ms (Views: 21.0ms | ActiveRecord: 0.2ms | Allocations: 6746)
+
+
+Started GET "/galleries/1/photos/new" for 127.0.0.1 at 2025-07-25 19:54:40 +0000
+Processing by PhotosController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:80:in `set_gallery'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:84:in `authorize_user!'
+  [1m[36mCACHE Gallery Load (0.0ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:19:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering photos/new.html.erb within layouts/application
+  Rendered photos/_form.html.erb (Duration: 5.8ms | Allocations: 1711)
+  Rendered photos/new.html.erb within layouts/application (Duration: 8.5ms | Allocations: 3257)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3348)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.4ms | Allocations: 10557)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `photos_path' for #<ActionView::Base:0x0000000000de08>):
+    5: <br>
+    6: 
+    7: <div>
+    8:   <%= link_to "Back to photos", photos_path %>
+    9: </div>
+  
+app/views/photos/new.html.erb:8
+Started GET "/galleries/1" for 127.0.0.1 at 2025-07-25 19:57:53 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/galleries_controller.rb:68:in `set_gallery'
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."gallery_id" = ?[0m  [["gallery_id", 1]]
+  ↳ app/views/galleries/show.html.erb:14
+  Rendered galleries/show.html.erb within layouts/application (Duration: 38.2ms | Allocations: 20701)
+  Rendered layout layouts/application.html.erb (Duration: 100.0ms | Allocations: 52266)
+Completed 200 OK in 129ms (Views: 102.7ms | ActiveRecord: 2.1ms | Allocations: 66941)
+
+
+Started GET "/galleries/1/photos/new" for 127.0.0.1 at 2025-07-25 19:57:54 +0000
+Processing by PhotosController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:80:in `set_gallery'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:84:in `authorize_user!'
+  [1m[36mCACHE Gallery Load (0.0ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:19:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering photos/new.html.erb within layouts/application
+  Rendered photos/_form.html.erb (Duration: 11.5ms | Allocations: 2317)
+  Rendered photos/new.html.erb within layouts/application (Duration: 12.6ms | Allocations: 2641)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 3808)
+Completed 200 OK in 39ms (Views: 15.7ms | ActiveRecord: 0.2ms | Allocations: 11869)
+
+
+Started POST "/galleries/1/photos" for 127.0.0.1 at 2025-07-25 19:58:22 +0000
+Processing by PhotosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "photo"=>{"caption"=>"downtown pittsbrugh", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007720a62820d8 @tempfile=#<Tempfile:/tmp/RackMultipart20250725-5324-a4zibb.jpg>, @content_type="image/jpeg", @original_filename="Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg", @headers="Content-Disposition: form-data; name=\"photo[image]\"; filename=\"Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg\"\r\nContent-Type: image/jpeg\r\n">, "gallery_id"=>""}, "commit"=>"Create Photo", "gallery_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:80:in `set_gallery'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:84:in `authorize_user!'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/photos_controller.rb:33:in `block in create'
+  [1m[36mPhoto Create (1.5ms)[0m  [1m[32mINSERT INTO "photos" ("caption", "gallery_id", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["caption", "downtown pittsbrugh"], ["gallery_id", 1], ["created_at", "2025-07-25 19:58:22.358343"], ["updated_at", "2025-07-25 19:58:22.358343"]]
+  ↳ app/controllers/photos_controller.rb:33:in `block in create'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Photo"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:33:in `block in create'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Photo"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:33:in `block in create'
+  [1m[36mActiveStorage::Blob Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["key", "yjz3oixz3ztsgyrdtecyrxvabjtn"], ["filename", "Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 297673], ["checksum", "VD6GUPQbAP3lSl4tGO3w3A=="], ["created_at", "2025-07-25 19:58:22.385785"]]
+  ↳ app/controllers/photos_controller.rb:33:in `block in create'
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "image"], ["record_type", "Photo"], ["record_id", 1], ["blob_id", 1], ["created_at", "2025-07-25 19:58:22.387674"]]
+  ↳ app/controllers/photos_controller.rb:33:in `block in create'
+  [1m[36mPhoto Update (0.3ms)[0m  [1m[33mUPDATE "photos" SET "updated_at" = ? WHERE "photos"."id" = ?[0m  [["updated_at", "2025-07-25 19:58:22.388960"], ["id", 1]]
+  ↳ app/controllers/photos_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/photos_controller.rb:33:in `block in create'
+[36m  Disk Storage (0.9ms) [0m[32mUploaded file to key: yjz3oixz3ztsgyrdtecyrxvabjtn (checksum: VD6GUPQbAP3lSl4tGO3w3A==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 99e88d54-8f5f-4c6e-b133-ea8033b8449c) to Async(default) with arguments: #<GlobalID:0x00007720a6271620 @uri=#<URI::GID gid://image-gallery-retest/ActiveStorage::Blob/1>>
+[ActiveJob] ↳ app/controllers/photos_controller.rb:33:in `block in create'
+Redirected to http://localhost:3000/galleries/1
+Completed 302 Found in 89ms (ActiveRecord: 6.6ms | Allocations: 41957)
+
+
+Started GET "/galleries/1" for 127.0.0.1 at 2025-07-25 19:58:22 +0000
+[ActiveJob] [ActiveStorage::AnalyzeJob] [99e88d54-8f5f-4c6e-b133-ea8033b8449c]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [99e88d54-8f5f-4c6e-b133-ea8033b8449c] Performing ActiveStorage::AnalyzeJob (Job ID: 99e88d54-8f5f-4c6e-b133-ea8033b8449c) from Async(default) enqueued at 2025-07-25T19:58:22.427850164Z with arguments: #<GlobalID:0x00007720a6211e28 @uri=#<URI::GID gid://image-gallery-retest/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [99e88d54-8f5f-4c6e-b133-ea8033b8449c] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [99e88d54-8f5f-4c6e-b133-ea8033b8449c]   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [99e88d54-8f5f-4c6e-b133-ea8033b8449c]   [1m[36mActiveStorage::Blob Update (1.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [99e88d54-8f5f-4c6e-b133-ea8033b8449c]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ?[0m  [["blob_id", 1]]
+Processing by GalleriesController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.4ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/galleries_controller.rb:68:in `set_gallery'
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."gallery_id" = ?[0m  [["gallery_id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [99e88d54-8f5f-4c6e-b133-ea8033b8449c]   [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = ?[0m  [["id", 1]]
+  ↳ app/views/galleries/show.html.erb:14
+[ActiveJob] [ActiveStorage::AnalyzeJob] [99e88d54-8f5f-4c6e-b133-ea8033b8449c]   [1m[36mPhoto Update (0.1ms)[0m  [1m[33mUPDATE "photos" SET "updated_at" = ? WHERE "photos"."id" = ?[0m  [["updated_at", "2025-07-25 19:58:22.470323"], ["id", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Photo"], ["name", "image"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [99e88d54-8f5f-4c6e-b133-ea8033b8449c]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/views/galleries/show.html.erb:16
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:17
+[ActiveJob] [ActiveStorage::AnalyzeJob] [99e88d54-8f5f-4c6e-b133-ea8033b8449c] Performed ActiveStorage::AnalyzeJob (Job ID: 99e88d54-8f5f-4c6e-b133-ea8033b8449c) from Async(default) in 40.81ms
+  Rendered galleries/show.html.erb within layouts/application (Duration: 17.8ms | Allocations: 9579)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 10730)
+Completed 200 OK in 27ms (Views: 20.6ms | ActiveRecord: 1.1ms | Allocations: 13380)
+
+
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--163dd0ddbd8579b9b22aa4777e9865a9942acf81/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGciLCJyZXNpemVfdG9fbGltaXQiOlsxNTAsMTUwXX0sInB1ciI6InZhcmlhdGlvbiJ9fQ==--c9eea53de2bc0ab76d451c6d91223af2a027dbcf/Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg" for 127.0.0.1 at 2025-07-25 19:58:22 +0000
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--163dd0ddbd8579b9b22aa4777e9865a9942acf81", "variation_key"=>"[FILTERED]", "filename"=>"Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 1], ["variation_digest", "W3rQbiDVl3RX0dJoKIDlgkZ9b4A="], ["LIMIT", 1]]
+[36m  Disk Storage (0.3ms) [0m[34mDownloaded file from key: yjz3oixz3ztsgyrdtecyrxvabjtn[0m
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.4ms | Allocations: 7558)
+
+
+  
+LoadError (Generating image variants require the image_processing gem. Please add `gem 'image_processing', '~> 1.2'` to your Gemfile.):
+  
+activestorage (7.1.5.1) lib/active_storage/transformers/image_processing_transformer.rb:6:in `rescue in <main>'
+activestorage (7.1.5.1) lib/active_storage/transformers/image_processing_transformer.rb:3:in `<main>'
+<internal:/home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/3.2.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+<internal:/home/Jonathan/.rbenv/versions/3.2.2/lib/ruby/3.2.0/rubygems/core_ext/kernel_require.rb>:37:in `require'
+bootsnap (1.18.6) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:30:in `require'
+zeitwerk (2.7.3) lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+activestorage (7.1.5.1) app/models/active_storage/variation.rb:85:in `transformer'
+activestorage (7.1.5.1) app/models/active_storage/variation.rb:58:in `block in transform'
+activesupport (7.1.5.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.5.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.5.1) lib/active_support/notifications.rb:206:in `instrument'
+activestorage (7.1.5.1) app/models/active_storage/variation.rb:57:in `transform'
+activestorage (7.1.5.1) app/models/active_storage/variant_with_record.rb:49:in `block in transform_blob'
+activestorage (7.1.5.1) lib/active_storage/downloader.rb:15:in `block in open'
+activestorage (7.1.5.1) lib/active_storage/downloader.rb:24:in `open_tempfile'
+activestorage (7.1.5.1) lib/active_storage/downloader.rb:12:in `open'
+activestorage (7.1.5.1) lib/active_storage/service.rb:92:in `open'
+activestorage (7.1.5.1) app/models/active_storage/blob.rb:290:in `open'
+activestorage (7.1.5.1) app/models/active_storage/variant_with_record.rb:48:in `transform_blob'
+activestorage (7.1.5.1) app/models/active_storage/variant_with_record.rb:44:in `process'
+activestorage (7.1.5.1) app/models/active_storage/variant_with_record.rb:19:in `processed'
+activestorage (7.1.5.1) app/controllers/active_storage/representations/base_controller.rb:14:in `set_representation'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:403:in `block in make_lambda'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:202:in `block (2 levels) in halting'
+actionpack (7.1.5.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:203:in `block in halting'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+turbo-rails (2.0.16) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.16) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.5.1) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.5.1) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.5.1) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.5.1) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.5.1) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.5.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.5.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.5.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.5.1) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.5.1) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.5.1) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.5.1) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.5.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.5.1) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.5.1) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.5.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.5.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.5.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.5.1) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.1.16) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.16) lib/rack/etag.rb:29:in `call'
+rack (3.1.16) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.16) lib/rack/head.rb:15:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.1) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.5.1) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.5.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.5.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.5.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.5.1) lib/active_support/tagged_logging.rb:139:in `block in tagged'
+activesupport (7.1.5.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.5.1) lib/active_support/tagged_logging.rb:139:in `tagged'
+activesupport (7.1.5.1) lib/active_support/broadcast_logger.rb:241:in `method_missing'
+railties (7.1.5.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.5.2) lib/sprockets/rails/quiet_assets.rb:17:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.1.16) lib/rack/method_override.rb:28:in `call'
+rack (3.1.16) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.5.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.5.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.5.1) lib/rails/engine.rb:536:in `call'
+puma (6.6.0) lib/puma/configuration.rb:279:in `call'
+puma (6.6.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in `with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in `process_client'
+puma (6.6.0) lib/puma/server.rb:254:in `block in run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in `block in spawn_thread'
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--163dd0ddbd8579b9b22aa4777e9865a9942acf81/Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg" for 127.0.0.1 at 2025-07-25 19:58:24 +0000
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--163dd0ddbd8579b9b22aa4777e9865a9942acf81", "filename"=>"Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (0.9ms) [0m[34mGenerated URL for file at key: yjz3oixz3ztsgyrdtecyrxvabjtn (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ5anozb2l4ejN6dHNneXJkdGVjeXJ4dmFianRuIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiRG93bnRvd25fUGl0dHNidXJnaF9mcm9tX0R1cXVlc25lX0luY2xpbmVfaW5fdGhlX21vcm5pbmcuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnRG93bnRvd25fUGl0dHNidXJnaF9mcm9tX0R1cXVlc25lX0luY2xpbmVfaW5fdGhlX21vcm5pbmcuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDctMjVUMjA6MDM6MjQuNjUxWiIsInB1ciI6ImJsb2Jfa2V5In19--ba01d00a5401f18c436e5afa908e39a0528895e8/Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ5anozb2l4ejN6dHNneXJkdGVjeXJ4dmFianRuIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiRG93bnRvd25fUGl0dHNidXJnaF9mcm9tX0R1cXVlc25lX0luY2xpbmVfaW5fdGhlX21vcm5pbmcuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnRG93bnRvd25fUGl0dHNidXJnaF9mcm9tX0R1cXVlc25lX0luY2xpbmVfaW5fdGhlX21vcm5pbmcuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDctMjVUMjA6MDM6MjQuNjUxWiIsInB1ciI6ImJsb2Jfa2V5In19--ba01d00a5401f18c436e5afa908e39a0528895e8/Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg
+Completed 302 Found in 5ms (ActiveRecord: 0.1ms | Allocations: 2147)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJ5anozb2l4ejN6dHNneXJkdGVjeXJ4dmFianRuIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiRG93bnRvd25fUGl0dHNidXJnaF9mcm9tX0R1cXVlc25lX0luY2xpbmVfaW5fdGhlX21vcm5pbmcuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnRG93bnRvd25fUGl0dHNidXJnaF9mcm9tX0R1cXVlc25lX0luY2xpbmVfaW5fdGhlX21vcm5pbmcuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDctMjVUMjA6MDM6MjQuNjUxWiIsInB1ciI6ImJsb2Jfa2V5In19--ba01d00a5401f18c436e5afa908e39a0528895e8/Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg" for 127.0.0.1 at 2025-07-25 19:58:24 +0000
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 260)
+
+
+Started GET "/galleries/1/photos/new" for 127.0.0.1 at 2025-07-25 20:05:40 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PhotosController#new as HTML
+  Parameters: {"gallery_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:80:in `set_gallery'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:84:in `authorize_user!'
+  [1m[36mCACHE Gallery Load (0.0ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/photos_controller.rb:19:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering photos/new.html.erb within layouts/application
+  Rendered photos/_form.html.erb (Duration: 6.0ms | Allocations: 2502)
+  Rendered photos/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2942)
+  Rendered layout layouts/application.html.erb (Duration: 60.1ms | Allocations: 34652)
+Completed 200 OK in 138ms (Views: 63.3ms | ActiveRecord: 2.5ms | Allocations: 73408)
+
+
+Started GET "/galleries/1" for 127.0.0.1 at 2025-07-25 20:05:41 +0000
+Processing by GalleriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGallery Load (0.1ms)[0m  [1m[34mSELECT "galleries".* FROM "galleries" WHERE "galleries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/galleries_controller.rb:68:in `set_gallery'
+  Rendering layout layouts/application.html.erb
+  Rendering galleries/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:6
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."gallery_id" = ?[0m  [["gallery_id", 1]]
+  ↳ app/views/galleries/show.html.erb:14
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "Photo"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:16
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/galleries/show.html.erb:17
+  Rendered galleries/show.html.erb within layouts/application (Duration: 52.2ms | Allocations: 20652)
+  Rendered layout layouts/application.html.erb (Duration: 54.5ms | Allocations: 21817)
+Completed 200 OK in 57ms (Views: 54.2ms | ActiveRecord: 1.5ms | Allocations: 22797)
+
+
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--163dd0ddbd8579b9b22aa4777e9865a9942acf81/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGciLCJyZXNpemVfdG9fbGltaXQiOlsxNTAsMTUwXX0sInB1ciI6InZhcmlhdGlvbiJ9fQ==--c9eea53de2bc0ab76d451c6d91223af2a027dbcf/Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg" for 127.0.0.1 at 2025-07-25 20:05:41 +0000
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--163dd0ddbd8579b9b22aa4777e9865a9942acf81", "variation_key"=>"[FILTERED]", "filename"=>"Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::VariantRecord Load (0.4ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 1], ["variation_digest", "W3rQbiDVl3RX0dJoKIDlgkZ9b4A="], ["LIMIT", 1]]
+[36m  Disk Storage (1.5ms) [0m[34mDownloaded file from key: yjz3oixz3ztsgyrdtecyrxvabjtn[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveStorage::VariantRecord Create (1.1ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("blob_id", "variation_digest") VALUES (?, ?) RETURNING "id"[0m  [["blob_id", 1], ["variation_digest", "W3rQbiDVl3RX0dJoKIDlgkZ9b4A="]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["key", "r6mixukd9yh53a7c5ewjpi64dzs5"], ["filename", "Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 13274], ["checksum", "Vli+yd8OMTO1mMbjhsRbCQ=="], ["created_at", "2025-07-25 20:05:41.412190"]]
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "image"], ["record_type", "ActiveStorage::VariantRecord"], ["record_id", 1], ["blob_id", 2], ["created_at", "2025-07-25 20:05:41.414402"]]
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[36mcommit transaction[0m
+[36m  Disk Storage (0.3ms) [0m[32mUploaded file to key: r6mixukd9yh53a7c5ewjpi64dzs5 (checksum: Vli+yd8OMTO1mMbjhsRbCQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 6d0f9128-1adb-45d9-98be-a2d32923579a) to Async(default) with arguments: #<GlobalID:0x0000733958064eb0 @uri=#<URI::GID gid://image-gallery-retest/ActiveStorage::Blob/2>>
+[36m  Disk Storage (3.1ms) [0m[34mGenerated URL for file at key: r6mixukd9yh53a7c5ewjpi64dzs5 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyNm1peHVrZDl5aDUzYTdjNWV3anBpNjRkenM1IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiRG93bnRvd25fUGl0dHNidXJnaF9mcm9tX0R1cXVlc25lX0luY2xpbmVfaW5fdGhlX21vcm5pbmcuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnRG93bnRvd25fUGl0dHNidXJnaF9mcm9tX0R1cXVlc25lX0luY2xpbmVfaW5fdGhlX21vcm5pbmcuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDctMjVUMjA6MTA6NDEuNDM2WiIsInB1ciI6ImJsb2Jfa2V5In19--b995936d77a5bf722915e4824710e38577afb56a/Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyNm1peHVrZDl5aDUzYTdjNWV3anBpNjRkenM1IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiRG93bnRvd25fUGl0dHNidXJnaF9mcm9tX0R1cXVlc25lX0luY2xpbmVfaW5fdGhlX21vcm5pbmcuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnRG93bnRvd25fUGl0dHNidXJnaF9mcm9tX0R1cXVlc25lX0luY2xpbmVfaW5fdGhlX21vcm5pbmcuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDctMjVUMjA6MTA6NDEuNDM2WiIsInB1ciI6ImJsb2Jfa2V5In19--b995936d77a5bf722915e4824710e38577afb56a/Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg
+Completed 302 Found in 303ms (ActiveRecord: 10.9ms | Allocations: 72915)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJyNm1peHVrZDl5aDUzYTdjNWV3anBpNjRkenM1IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiRG93bnRvd25fUGl0dHNidXJnaF9mcm9tX0R1cXVlc25lX0luY2xpbmVfaW5fdGhlX21vcm5pbmcuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnRG93bnRvd25fUGl0dHNidXJnaF9mcm9tX0R1cXVlc25lX0luY2xpbmVfaW5fdGhlX21vcm5pbmcuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjUtMDctMjVUMjA6MTA6NDEuNDM2WiIsInB1ciI6ImJsb2Jfa2V5In19--b995936d77a5bf722915e4824710e38577afb56a/Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning.jpg" for 127.0.0.1 at 2025-07-25 20:05:41 +0000
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6d0f9128-1adb-45d9-98be-a2d32923579a]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6d0f9128-1adb-45d9-98be-a2d32923579a] Performing ActiveStorage::AnalyzeJob (Job ID: 6d0f9128-1adb-45d9-98be-a2d32923579a) from Async(default) enqueued at 2025-07-25T20:05:41.433039419Z with arguments: #<GlobalID:0x00007339580d31d0 @uri=#<URI::GID gid://image-gallery-retest/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6d0f9128-1adb-45d9-98be-a2d32923579a] [36m  Disk Storage (0.3ms) [0m[34mDownloaded file from key: r6mixukd9yh53a7c5ewjpi64dzs5[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6d0f9128-1adb-45d9-98be-a2d32923579a]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6d0f9128-1adb-45d9-98be-a2d32923579a]   [1m[36mActiveStorage::Blob Update (2.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":150,\"height\":100,\"analyzed\":true}"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6d0f9128-1adb-45d9-98be-a2d32923579a]   [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = ?[0m  [["blob_id", 2]]
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Downtown_Pittsburgh_from_Duquesne_Incline_in_the_morning"}
+Completed 200 OK in 3ms (ActiveRecord: 0.0ms | Allocations: 823)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6d0f9128-1adb-45d9-98be-a2d32923579a]   [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."id" = ?[0m  [["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6d0f9128-1adb-45d9-98be-a2d32923579a]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6d0f9128-1adb-45d9-98be-a2d32923579a] Performed ActiveStorage::AnalyzeJob (Job ID: 6d0f9128-1adb-45d9-98be-a2d32923579a) from Async(default) in 55.53ms

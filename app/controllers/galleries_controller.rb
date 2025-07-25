@@ -26,7 +26,7 @@ class GalleriesController < ApplicationController
 
   # POST /galleries or /galleries.json
   def create
-    @gallery = current_user.Gallery.new(gallery_params)
+    @gallery = current_user.galleries.new(gallery_params)
 
     respond_to do |format|
       if @gallery.save
@@ -70,7 +70,7 @@ class GalleriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gallery_params
-      params.require(:gallery).permit(:title, :user_id)
+      params.require(:gallery).permit(:title)
     end
     
   private
