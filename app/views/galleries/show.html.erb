@@ -3,10 +3,11 @@
 
 <h1><%= @gallery.title %></h1>
 
-<% if user_signed_in? && current_user == @gallery.user %>
-  <%= link_to "Edit", edit_gallery_path(@gallery) %> |
+<% if user_signed_in? && current_user == @gallery.user%>
+  <%= link_to "Edit", edit_gallery_path(@gallery), class: "btn"%> |
   <%= link_to "Delete", gallery_path(@gallery), method: :delete, data: { confirm: "Are you sure?" } %> |
-  <%= link_to "Add Photo", new_gallery_photo_path(@gallery) %>
+  <%= link_to "Add Photo", new_gallery_photo_path(@gallery), class: "btn" %> |
+  <%= link_to "View Slideshow", "#", id: "open-slideshow", class: "btn" %>
 <% end %>
 
 <edited to show photos as thumbnails, give the original's URL, give captions, and allow editing access to owners.>
@@ -24,4 +25,98 @@
     <% end %>
   </div>
 <% end %>
+
+<This is the current set up for slideshows>
+<div id="slideshow" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; text-align: center;">
+
+  <div style="position: absolute; top: 10px; right: 20px;">
+    <a href="#" id="close-slideshow" style="color: white; font-size: 24px;">✕ Close</a>
+  </div>
+
+  <div id="slides" style="height: 100%; display: flex; align-items: center; justify-content: center; position: relative;">
+  <% @gallery.photos.each do |photo| %>
+    <% if photo.image.attached? %>
+      <img src="<%= url_for(photo.image) %>" class="slide-image" style="max-height: 80vh; max-width: 80%; margin: auto; display: none;" />
+    <% end %>
+  <% end %>
+
+  <!-- Prev Button -->
+  <a href="#" id="prev-slide" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); color: white; font-size: 2rem;">❮</a>
+
+  <!-- Next Button -->
+  <a href="#" id="next-slide" style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%); color: white; font-size: 2rem;">❯</a>
+</div>
+</div>
+
+<This is the JavaScript code that will power the actual function of the slide show.>
+<script>
+  document.addEventListener("DOMContentLoaded", function () 
+  {
+    const openBtn = document.getElementById("open-slideshow");
+    const closeBtn = document.getElementById("close-slideshow");
+    const prevBtn = document.getElementById("prev-slide");
+    const nextBtn = document.getElementById("next-slide");
+    const slideshow = document.getElementById("slideshow");
+    const slides = document.querySelectorAll(".slide-image");
+
+    let current = 0;
+    let interval;
+
+    function showSlide(index) 
+    {
+      slides.forEach((img, i) => 
+      {
+        img.style.display = i === index ? "block" : "none";
+      });
+    }
+
+    function nextSlide() 
+    {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function prevSlide() 
+    {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+
+    openBtn.addEventListener("click", function (e) 
+    {
+      e.preventDefault();
+      if (slides.length === 0) return;
+
+      slideshow.style.display = "block";
+      current = 0;
+      showSlide(current);
+      interval = setInterval(nextSlide, 3000); // auto-rotate
+    });
+
+    closeBtn.addEventListener("click", function (e) 
+    {
+      e.preventDefault();
+      slideshow.style.display = "none";
+      clearInterval(interval);
+    });
+
+    nextBtn.addEventListener("click", function (e) 
+    {
+      e.preventDefault();
+      clearInterval(interval);
+      nextSlide();
+    });
+
+    prevBtn.addEventListener("click", function (e) 
+    {
+      e.preventDefault();
+      clearInterval(interval);
+      prevSlide();
+    });
+  });
+</script>
+
+
+
+
 
