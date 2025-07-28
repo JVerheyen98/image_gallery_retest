@@ -3,8 +3,15 @@
 <%= render @photo %>
 
 <div>
-  <%= link_to "Edit this photo", edit_photo_path(@photo) %> |
-  <%= link_to "Back to photos", photos_path %>
-
-  <%= button_to "Destroy this photo", @photo, method: :delete %>
+  <%= link_to "Edit this photo", edit_gallery_photo_path(@gallery, @photo) %> |
+  <%= link_to "Back to gallery", gallery_path(@gallery) %> |
+  <%= button_to "Destroy this photo", gallery_photo_path(@gallery, @photo), method: :delete %>
 </div>
+
+<% if @photo.image.attached? %>
+  <div style="text-align: center;">
+    <img src="<%= url_for(@photo.image) %>" style="max-width: 80%; max-height: 80vh;" />
+    <p><%= @photo.caption %></p>
+  </div>
+<% end %>
+

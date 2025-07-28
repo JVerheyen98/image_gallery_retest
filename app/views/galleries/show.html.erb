@@ -13,7 +13,7 @@
 <edited to show photos as thumbnails, give the original's URL, give captions, and allow editing access to owners.>
 <h2>Photos:</h2>
 <% @gallery.photos.each do |photo| %>
-  <div>
+  <div id="photo-wrapper-<%= photo.id %>" style="display: inline-block; margin: 10px;">
     <% if photo.image.attached? %>
       <%= link_to image_tag(photo.image.variant(resize_to_limit: [150, 150])), url_for(photo.image), target: "_blank" %>
     <% end %>
@@ -21,7 +21,7 @@
 
     <% if current_user == @gallery.user %>
       <%= link_to "Edit", edit_gallery_photo_path(@gallery, photo) %> |
-      <%= link_to "Delete", gallery_photo_path(@gallery, photo), method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to "Delete", gallery_photo_path(@gallery, photo), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: "delete-photo", id: "photo-#{photo.id}" %>
     <% end %>
   </div>
 <% end %>
@@ -40,10 +40,10 @@
     <% end %>
   <% end %>
 
-  <!-- Prev Button -->
+  < Prev Button >
   <a href="#" id="prev-slide" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); color: white; font-size: 2rem;">❮</a>
 
-  <!-- Next Button -->
+  < Next Button >
   <a href="#" id="next-slide" style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%); color: white; font-size: 2rem;">❯</a>
 </div>
 </div>

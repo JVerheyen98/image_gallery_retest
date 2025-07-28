@@ -5,6 +5,6 @@
 <br>
 
 <div>
-  <%= link_to "Show this gallery", @gallery %> |
-  <%= link_to "Back to galleries", galleries_path %>
+  <%= link_to "Show this photo", gallery_photo_path(@gallery, @photo) %> |
+  <%= link_to "Back to gallery", gallery_path(@gallery) %>
 </div>

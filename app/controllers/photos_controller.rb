@@ -1,8 +1,8 @@
 class PhotosController < ApplicationController
+  before_action :set_gallery
   before_action :set_photo, only: %i[ show edit update destroy ]
   #added to authenticate user and gallery id
   before_action :authenticate_user!
-  before_action :set_gallery
   before_action :authorize_user!
 
   # GET /photos or /photos.json
@@ -44,8 +44,8 @@ class PhotosController < ApplicationController
   def update
     respond_to do |format|
       if @photo.update(photo_params)
-        format.html { redirect_to @photo, notice: "Photo was successfully updated." }
-        format.json { render :show, status: :ok, location: @photo }
+        format.html { redirect_to gallery_photo_path(@gallery, @photo), notice: "Photo was successfully updated." }
+        format.json { render :show, status: :ok, location: gallery_photo_path(@gallery, @photo) }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
@@ -55,15 +55,21 @@ class PhotosController < ApplicationController
 
   # DELETE /photos/1 or /photos/1.json
   def destroy
-    @photo.destroy!
+  @photo.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to photos_path, status: :see_other, notice: "Photo was successfully destroyed." }
-      format.json { head :no_content }
-    end
+  respond_to do |format|
+    format.html { redirect_to gallery_path(@gallery), status: :see_other, notice: "Photo was successfully destroyed." }
+    format.json { head :no_content }
   end
+end
+
 
   private
+    #added to define these methods for the top before actions added. 
+    def set_gallery
+      @gallery = Gallery.find(params[:gallery_id])
+    end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
       @photo = Photo.find(params[:id])
@@ -73,11 +79,6 @@ class PhotosController < ApplicationController
     # edited to allow images
     def photo_params
       params.require(:photo).permit(:caption, :image, :gallery_id)
-    end
-    
-    #added to define these methods for the top before actions added. 
-    def set_gallery
-      @gallery = Gallery.find(params[:gallery_id])
     end
 
     def authorize_user!
