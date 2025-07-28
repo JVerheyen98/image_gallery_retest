@@ -3,52 +3,7 @@
 <%= render "form", photo: @photo %>
 
 <br>
-<%= form_with(model: [@gallery, @photo], local: true, html: { multipart: true }) do |form| %>
-  <%= form.label :image %>
-  <%= form.file_field :image, id: "upload-image" %>
-
-  <div>
-    <img id="preview-image" style="max-width: 100%;" />
-  </div>
-
-  <%= form.hidden_field :crop_data, id: "crop-data" %>
-
-  <%= form.submit "Save Photo" %>
-<% end %>
-
 
 <div>
   <%= link_to "Back to photos", gallery_photos_path(@gallery) %>
 </div>
-
-<script>
-document.addEventListener("turbo:load", function () {
-  const input = document.getElementById("upload-image");
-  const preview = document.getElementById("preview-image");
-  const cropData = document.getElementById("crop-data");
-  let cropper;
-
-  if (!input || !preview) return;
-
-  input.addEventListener("change", (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      preview.src = event.target.result;
-      if (cropper) cropper.destroy();
-
-      cropper = new Cropper(preview, {
-        aspectRatio: 1, // Adjust ratio if needed
-        viewMode: 1,
-        autoCropArea: 1,
-        crop(event) {
-          cropData.value = JSON.stringify(cropper.getData());
-        },
-      });
-    };
-    reader.readAsDataURL(file);
-  });
-});
-
