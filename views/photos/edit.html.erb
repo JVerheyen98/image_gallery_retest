@@ -1,0 +1,10 @@
+<h1>Editing photo</h1>
+
+<%= render "form", photo: @photo %>
+
+<br>
+
+<div>
+  <%= link_to "Show this photo", gallery_photo_path(@gallery, @photo) %> |
+  <%= link_to "Back to gallery", gallery_path(@gallery) %>
+</div>

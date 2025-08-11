@@ -1,0 +1,132 @@
+
+<changed to show only if logged in, and to give better gallery names> 
+
+<h1><%= @gallery.title %></h1>
+
+<% if user_signed_in? && current_user == @gallery.user%>
+  <%= link_to "Edit", edit_gallery_path(@gallery), class: "btn"%> |
+  <%= link_to "Delete", gallery_path(@gallery), class: "btn", method: :delete, data: { confirm: "Are you sure?" } %> |
+  <%= link_to "Add Photo", new_gallery_photo_path(@gallery), class: "btn" %> |
+  <%= link_to "View Slideshow", "#", id: "open-slideshow", class: "btn" %>
+<% end %>
+
+<edited to show photos as thumbnails, give the original's URL, give captions, and allow editing access to owners.>
+<h2>Photos:</h2>
+<% @gallery.photos.each do |photo| %>
+  <div id="photo-wrapper-<%= photo.id %>" style="display: inline-block; margin: 10px;">
+    <% if photo.image.attached? %>
+      <%= link_to image_tag(photo.image.variant(resize_to_limit: [150, 150])), url_for(photo.image), target: "_blank" , class: "shadow-thumb" %>
+    <% end %>
+    <p><%= photo.caption %></p>
+
+    <% if current_user == @gallery.user %>
+      <%= link_to "Edit", edit_gallery_photo_path(@gallery, photo), class: "btn"%> |
+      <%= link_to "Delete", gallery_photo_path(@gallery, photo), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: "delete-photo", id: "photo-#{photo.id}", class: "btn"%>
+    <% end %>
+  </div>
+<% end %>
+
+< This is the current set up for slideshows>
+<div id="slideshow" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; text-align: center;">
+
+  < This places the close button in the top right corner >
+  <div style="position: absolute; top: 10px; right: 20px;">
+    <a href="#" id="close-slideshow" style="color: white; font-size: 24px;">✕ Close</a>
+  </div>
+
+  < This is the container that the slides will show up in >
+  <div id="slides" style="height: 100%; display: flex; align-items: center; justify-content: center; position: relative;">
+  <% @gallery.photos.each do |photo| %>
+    <% if photo.image.attached? %>
+      <img src="<%= url_for(photo.image) %>" class="slide-image" style="max-height: 80vh; max-width: 80%; margin: auto; display: none;" />
+    <% end %>
+  <% end %>
+
+  < Prev Button >
+  <a href="#" id="prev-slide" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); color: white; font-size: 2rem;">❮</a>
+
+  < Next Button >
+  <a href="#" id="next-slide" style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%); color: white; font-size: 2rem;">❯</a>
+</div>
+</div>
+
+< This is the JavaScript code that will power the actual function of the slide show. >
+<script>
+  document.addEventListener("DOMContentLoaded", function () 
+  {
+    // Slideshow elements
+    const openBtn = document.getElementById("open-slideshow");
+    const closeBtn = document.getElementById("close-slideshow");
+    const prevBtn = document.getElementById("prev-slide");
+    const nextBtn = document.getElementById("next-slide");
+    const slideshow = document.getElementById("slideshow");
+    const slides = document.querySelectorAll(".slide-image");
+
+    // keeps track of slide number and progressing next slide
+    let current = 0;
+    let interval;
+
+    // Displays a single image at a time
+    function showSlide(index) 
+    {
+      slides.forEach((img, i) => 
+      {
+        img.style.display = i === index ? "block" : "none";
+      });
+    }
+
+    // Moves to the next slide and loops if at last
+    function nextSlide() 
+    {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    // Moves to previous slide and loops if at last
+    function prevSlide() 
+    {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+
+    // Opens the slideshow overlay and starts auto progress
+    openBtn.addEventListener("click", function (e) 
+    {
+      e.preventDefault();
+      if (slides.length === 0) return;
+
+      slideshow.style.display = "block";
+      current = 0;
+      showSlide(current);
+      interval = setInterval(nextSlide, 3000); // auto-rotate
+    });
+
+    // Closes the slideshow
+    closeBtn.addEventListener("click", function (e) 
+    {
+      e.preventDefault();
+      slideshow.style.display = "none";
+      clearInterval(interval);
+    });
+
+    // manual next and previous buttons, stopping auto progress
+    nextBtn.addEventListener("click", function (e) 
+    {
+      e.preventDefault();
+      clearInterval(interval);
+      nextSlide();
+    });
+
+    prevBtn.addEventListener("click", function (e) 
+    {
+      e.preventDefault();
+      clearInterval(interval);
+      prevSlide();
+    });
+  });
+</script>
+
+
+
+
+

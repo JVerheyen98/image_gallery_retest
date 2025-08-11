@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<changed to better show gallaries and the user who owns them>
+<h1>All Galleries</h1>
+
+<% @galleries.each do |gallery| %>
+  <div>
+    <h2><%= link_to gallery.title, gallery %></h2>
+    <p>By <%= gallery.user.email %></p>
+  </div>
+<% end %>
+
+</div>
+
+<%= link_to "New gallery", new_gallery_path %>
